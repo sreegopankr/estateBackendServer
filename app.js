@@ -6,12 +6,12 @@ import userRouter from "./routes/user.route.js";
 import chatRouter from "./routes/chat.route.js";
 import messageRouter from "./routes/message.route.js";
 import cookieParser from "cookie-parser";
-
+import cors from "cors";
 import dotenv from "dotenv";
 
 dotenv.config();
 const app = express();
-
+app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 
 app.use(express.json());
 app.use(cookieParser());
