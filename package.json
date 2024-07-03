@@ -5,7 +5,11 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "prisma:inline": "cp ./node_modules/.prisma/client/*.js ./node_modules/@prisma/client",
+    "prisma:migrate": "prisma migrate deploy && npm run prisma:inline",
+    "prisma:migrate:dev": "prisma migrate dev && npm run prisma:inline",
+    "prisma:generate": "prisma generate && npm run prisma:inline"
   },
   "keywords": [],
   "author": "",
